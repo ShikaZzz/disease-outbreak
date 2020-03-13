@@ -1,0 +1,30 @@
+{
+	"FILETYPE":
+			{
+				"CSV":0,
+				"EXCEL":1
+			},
+	"DATATYPE":
+			{
+				"TYPE1":1,
+				"TYPE2":2,
+				"TYPE3":3
+			},
+	"REQUIREDCOLUMNS":
+			{
+				"TYPE1":["Country","Indicator","Date","Value"],
+				"TYPE2":["Country","Date","Value"],
+				"TYPE3":["Country"]
+			},
+	"Indicator":
+		{
+			"ebola":"Cumulative number of confirmed, probable and suspected Ebola cases",
+			"sars" :"Cumulative number of case(s)"
+		}
+
+	
+
+
+
+
+}
