@@ -160,7 +160,7 @@ class GetDatatype:
 		if required_dtype=="Indicator":
 			# check if each value in the data.column_name column is str type
 			assert is_string(self.data[column_name])
-			elif required_dtype=="Date":
+		elif required_dtype=="Date":
 			# check if each value in the data.column_name column is datetime64 type
 			assert is_datetime(self.data[column_name])
 		elif required_dtype=="Country":
