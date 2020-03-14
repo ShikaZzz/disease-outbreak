@@ -5,6 +5,7 @@ This project mainly works on the different diseases outbreak and perticularly we
 ## Installation Commands
 - pip install -r requirements.txt
 - Code is tested on python 3.7.4
+- run the code using command: python main.py 
 
 ## DataSet
 - Ebola : in this link: https://data.humdata.org/dataset/ebola-cases-2014/resource/a8b51b81-1fa7-499d-a9f2-3d0bce06b5b5
@@ -23,3 +24,13 @@ There are 4 factors that will greatly influence diseases:
 2. Population: it directly proportional to spread. However, there are some exceptions.
 3. Age: The aged people are much easier to get affected. 
 4. Vaccine: The development of vaccine will effectively reduce the threat of viruses
+
+## Code Overview
+- we created a module that can plot the animations for generic type of data. 
+   - source code available at ./src
+   - Refer to ./src/spread_animator.py for more details
+   - To reproduce the animations for our dataset, we created another module. location ./scripts/animations.py
+- For specific case study of H1N1, we created another module. 
+   - location: ./scripts/h1n1_visualizations.py
+
+
