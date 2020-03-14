@@ -12,6 +12,8 @@ From our datasets, we categorize data into 3 categories.
 :              .         .        .                   .
 :              .         .        .                   .
 :         |   US    | value1 | value2| ......... | value_n|
+:-------------------------------------------------------
+: Functionality: To compute the type of data.
 '''
 
 import os
@@ -22,11 +24,12 @@ from pandas.api.types import is_datetime64_any_dtype as is_datetime
 from pandas.api.types import is_string_dtype as is_string
 from pandas.api.types import is_numeric_dtype as is_numeric
 from src.load_data import LoadData
+import datetime as dt
 
 
 class GetDatatype:
 	'''
-	computes the type of data.
+	: computes the type of data.
 	'''
 	def __init__(self):
 		'''
@@ -89,28 +92,24 @@ class GetDatatype:
 		:                  All the remaining columns should be of 'Value' type
 		'''
 		self.check_data(data,is_fname=is_fname,Indicator=Indicator)
-		print(self.data.keys().values,"=============\n",self.params["REQUIREDCOLUMNS"]["TYPE1"])
 		if self.check_columns_names(self.data,self.params["REQUIREDCOLUMNS"]["TYPE1"]):
-			print('type1')
+			
 			for column_name in self.params["REQUIREDCOLUMNS"]["TYPE1"]:
 				self.check_column_dtype(self.data,column_name,column_name)
 
 			return self.data,self.TYPE1
 
 		elif self.check_columns_names(self.data,self.params["REQUIREDCOLUMNS"]["TYPE2"]):
-			print('type2')
+			
 			for column_name in self.params["REQUIREDCOLUMNS"]["TYPE2"]:
 				self.check_column_dtype(self.data,column_name,column_name)
 
 			return self.data,self.TYPE2
 
 		elif self.check_columns_names(self.data,self.params["REQUIREDCOLUMNS"]["TYPE3"]):
-			print('type3')
 			
 			for column_name in self.data.keys().values:
-				# print(column_name)
 				if column_name in self.params["REQUIREDCOLUMNS"]["TYPE3"]:
-					# print('Hi')
 					self.check_column_dtype(self.data,column_name,column_name)
 				else:
 					self.check_column_dtype(self.data,column_name,"Value")
@@ -155,28 +154,22 @@ class GetDatatype:
 		'''
 
 		self.check_data(data)
-
-		assert isinstance(column_name,str) or isinstance(column_name,int)
+		assert isinstance(column_name,str) or isinstance(column_name,int) or isinstance(column_name,dt.date)
 		assert column_name in data.keys().values
 		assert required_dtype in self.params["REQUIREDCOLUMNS"]["TYPE1"]
-		# print(data.keys().values,column_name,required_dtype)
 		if required_dtype=="Indicator":
 			# check if each value in the data.column_name column is str type
 			assert is_string(self.data[column_name])
-			# assert all([isinstance(col_val,str) for col_val in self.data.column_name.values])	
-		elif required_dtype=="Date":
+			elif required_dtype=="Date":
 			# check if each value in the data.column_name column is datetime64 type
 			assert is_datetime(self.data[column_name])
 		elif required_dtype=="Country":
 			# check if each value in the data.column_name column is str type
 			assert is_string(self.data[column_name])    
-			# assert all([isinstance(col_val,str) for col_val in self.data.column_name.values])
 			# tbd - check if they are actual country names
 		elif required_dtype=="Value":
 			# check if each value in the data.column_name column is int type
-			print(self.data.dtypes,'........\n',column_name)
 			assert is_numeric(self.data[column_name])
-			# assert all([isinstance(col_val,int) for col_val in self.data.column_name.values]) 
 		else:
 			raise NotImplementedError
 	 

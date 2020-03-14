@@ -42,6 +42,8 @@ class Convert2Type3:
 		elif Type==self.TYPE1:
 			self.data = self.convert_type1_to_type2(data,Indicator=Indicator)
 			self.data = self.convert_type2_to_type3(self.data)
+		elif Type==self.TYPE3:
+			self.data = data
 		else:
 			raise NotImplementedError
 
@@ -76,7 +78,7 @@ class Convert2Type3:
 		self.data_type3 = self.data_type3.sort_values('Date')
 		self.data_type3 = self.data_type3.fillna(0)
 		self.data_type3 = self.data_type3.set_index('Date').T.reset_index()
-
+		self.data_type3.rename(columns={'index':'Country'},inplace=True)
 		return self.data_type3
 
 	def convert_type1_to_type2(self,data,Indicator=None):

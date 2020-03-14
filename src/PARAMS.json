@@ -20,11 +20,27 @@
 		{
 			"ebola":"Cumulative number of confirmed, probable and suspected Ebola cases",
 			"sars" :"Cumulative number of case(s)"
-		}
+		},
 
-	
-
-
-
+	"Country_Names_Mappings":
+		{
+			"hong_kong_sar, china": "china",
+			"macao sar, china":"china",
+			"republic of ireland":"ireland",
+			"republic of korea":"korea",
+			"taiwan, china":"china",
+			"viet nam":"vietnam",
+			"c�te d'ivoire":"côte d'ivoire",
+			"democratic people's republic of korea":"south korea",
+			"lao people's democratic republic":"laos",
+			"democratic republic of the congo":"congo drc",
+			"republic of korea":"north korea",
+			"republic of moldova":"moldova",
+			"syrian arab republic":"syria",
+			"united kingdom of great britain and northern ireland":"united kingdom",
+			"united republic of tanzania":"tanzania",
+			"united states of america":"united states"
+		},
+	"Country_Shape_File":"./../data/shape_files/UIA_World_Countries_Boundaries/UIA_World_Countries_Boundaries.shp"
 
 }
