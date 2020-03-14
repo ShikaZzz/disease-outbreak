@@ -88,9 +88,9 @@ class H1N1Visualizer():
         : http://www.census.gov/geo/www/cob/st2000.html
         '''
         
-        shp_info = self.m.readshapefile('st99_d00','states',drawbounds=True,
+        shp_info = self.m.readshapefile('./../data/shape_files/st99_d00.shp','states',drawbounds=True,
                                    linewidth=0.45,color='gray')
-        shp_info_ = self.m_.readshapefile('st99_d00','states',drawbounds=False)
+        shp_info_ = self.m_.readshapefile('./../data/shape_files/st99_d00.shp','states',drawbounds=False)
     
     def get_colors(self):
         '''
