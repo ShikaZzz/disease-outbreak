@@ -1,6 +1,8 @@
 from scripts.animations import Animation
-# from scripts.h1n1_visualizations import H1N1Visualizer
+from scripts.h1n1_visualizations import H1N1Visualizer
 import json
+from scripts.h1n1_vaccine import vaccine
+from scripts.h1n1_flight import flight
 
 # For the animation of a disease. 
 # you can vary the 
@@ -15,22 +17,10 @@ Animation(disease='ebola',
 	Indicator='Cumulative number of confirmed Ebola cases',
 	output='ebola.mp4')
 
-# # 
-# H1N1Visualizer().map_plot(fname="states data.csv",column='Value')
+#h1n1 visualization
+H1N1Visualizer().map_plot(fname="./data/h1n1/states data.csv",column='Value')
 
-# H1N1Visualizer().plot_vaccines_effect()
-# H1N1Visualizer().plot_flights_influence()
-
-
-# "DATA_MANUAL_COLLECTIONS.json"
-
-# death_proportion = [1282,9565,1621]
-# title1 = 'Deaths Proportion'
-# hosp_proportion  = [86813,160229,27263]
-# title2 = 'Hospitalizations Proportion'
-# cases_proportion = [19501004,35392931,5943813]
-# title3 = 'Cases Proportion'
-# H1N1Visualizer().plot_vaccines_effect(death_proportion,title1)
-# H1N1Visualizer().plot_vaccines_effect(hosp_proportion,title2)
-# H1N1Visualizer().plot_vaccines_effect(cases_proportion,title3)
+flight()
+vaccine()
+pie_charts()
 
